@@ -5,7 +5,12 @@
 # Distributed under the terms of the Modified BSD License.
 
 import os
-from urllib.parse import urlparse
+
+try:
+    from urllib.parse import urlparse
+except ImportError:
+    # python2 compat
+     from urlparse import urlparse
 
 from jinja2 import ChoiceLoader, FunctionLoader
 

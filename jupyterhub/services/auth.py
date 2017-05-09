@@ -10,7 +10,10 @@ HubAuthenticated is a mixin class for tornado handlers that should authenticate 
 import os
 import socket
 import time
-from urllib.parse import quote
+try:
+    from urllib.parse import quote
+except ImportError:
+     from urllib import quote
 
 import requests
 
