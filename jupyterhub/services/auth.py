@@ -9,7 +9,7 @@ HubAuthenticated is a mixin class for tornado handlers that should authenticate 
 
 import os
 import socket
-import time
+import monotonic
 try:
     from urllib.parse import quote
 except ImportError:
@@ -44,7 +44,7 @@ class _ExpiringDict(dict):
 
     def __setitem__(self, key, value):
         """Store key and record timestamp"""
-        self.timestamps[key] = time.monotonic()
+        self.timestamps[key] = monotonic.monotonic()
         self.values[key] = value
 
     def _check_age(self, key):
@@ -52,7 +52,7 @@ class _ExpiringDict(dict):
         if key not in self.values:
             # not registered, nothing to do
             return
-        now = time.monotonic()
+        now = monotonic.monotonic()
         timestamp = self.timestamps[key]
         if self.max_age > 0 and timestamp + self.max_age < now:
             self.values.pop(key)

@@ -23,6 +23,7 @@ setup(
         'tornado>=4.1',
         'jinja2',
         'notebook>=4.0',
-        'requests'
+        'requests',
+        'monotonic'
     ]
 )
