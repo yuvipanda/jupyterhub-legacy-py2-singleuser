@@ -9,7 +9,7 @@ if v[:2] != (2, 7):
     sys.exit(1)
 
 setup(
-    name='jupyterhub-legacy-singleuser',
+    name='jupyterhub-legacy-py2-singleuser',
     version='0.7.2',
     description='Single-user server for running Jupyter Notebooks (on Python2) with JupyterHub',
     url='https://github.com/yuvipanda/jupyterhub-legacy-singleuser',
